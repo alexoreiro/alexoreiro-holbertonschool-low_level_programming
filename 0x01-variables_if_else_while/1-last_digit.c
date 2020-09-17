@@ -20,12 +20,12 @@ if (last > 5)
 printf(" Last digit of %d is %d and is greater", n, last);
 printf("than 5\n");
 }
-else if (last < 6)
+if (last < 6)
 {
 printf(" Last digit of %d is %d and is less", n, last);
-printf(" than 6 and not 0\n");
+printf(" than 6\n");
 }
-else if (last == 0)
+if (last == 0)
 {
 printf(" Last digit of %d is %d and is 0\n", n, last);
 }
