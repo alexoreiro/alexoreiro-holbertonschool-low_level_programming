@@ -1,9 +1,7 @@
 #include "holberton.h"
 
 /**
- * void more_numbers (void) - prints numbers from 0 to 14.
- *
- * Return: Always 0.
+ *more_numbers - check the code for Holberton School students.
  */
 void more_numbers(void)
 {
