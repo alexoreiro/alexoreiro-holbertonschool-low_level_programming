@@ -1,9 +1,9 @@
 #include "holberton.h"
 
 /**
- * main - check the code for Holberton School students.
- *@nsd
- *@na
+ * print_most_numbers - print numbers from 0 to 9
+ * @nsd
+ * @na
  * Return: Always 0.
  */
 
