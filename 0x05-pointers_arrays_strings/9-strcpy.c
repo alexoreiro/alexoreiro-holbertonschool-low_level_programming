@@ -14,5 +14,5 @@ int count;
 for (count = 0; src[count] != '\0'; count++)
 dest[count] = src[count];
 
-return (dest);
+return (dest + 1);
 }
