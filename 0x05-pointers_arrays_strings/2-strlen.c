@@ -1,8 +1,8 @@
 #include "holberton.h"
 
 /**
- * main - this function returns the length of a string.
- *
+ * _strlen - this function returns the length of a string.
+ * @s: is the start position of the pointer.
  * Return: Always 0.
  */
 int _strlen(char *s)
