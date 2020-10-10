@@ -14,7 +14,7 @@ if (argc > 1)
 {
 for (count = 0; count < argc; count++)
 {
-  printf("%s\n", argv[count]);
+printf("%s\n", argv[count]);
 }
 }
 else
