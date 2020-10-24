@@ -17,7 +17,7 @@ if (n == 0)
 return (0);
 }
 
-va_start (lista, n);
+va_start(lista, n);
 
 for (i = 0; i < n; i++)
 {
