@@ -1,91 +1,87 @@
 #include "variadic_functions.h"
-#include "stdio.h"
-
+#include <stdarg.h>
+#include <stdio.h>
 /**
- * print_int - function to print ints
- * @arg: va_list type
- * Return: always successful
+ * prints_c - prints character
+ * @list: variable list
+ * @sep: separator
+ * Return: Nothing
  */
-void print_int(va_list arg)
+void prints_c(va_list list, char *sep)
 {
-printf("%d", va_arg(arg, int));
+printf("%s%c", sep, va_arg(list, int));
 }
-
 /**
- * print_char - function to print char
- * @arg: va_list type
- * Return: always successful
+ * prints_i - prints integer
+ * @list: variable list
+ * @sep: separator
+ * Return: Nothing
  */
-
-void print_char(va_list arg)
+void prints_i(va_list list, char *sep)
 {
-printf("%c", va_arg(arg, int));
+printf("%s%d", sep, va_arg(list, int));
 }
 /**
- * print_float - function to print floats
- * @arg: va_list type
- * Return: always successful
+ * prints_f - prints float
+ * @list: variable list
+ * @sep: separator
+ * Return: Nothing
  */
-void print_float(va_list arg)
+void prints_f(va_list list, char *sep)
 {
-printf("%f", va_arg(arg, double));
+printf("%s%f", sep, va_arg(list, double));
 }
-
 /**
- * print_string - function to print string
- * @arg: va_list type
- * Return: always successful
+ * prints_s - prints string
+ * @list: variable list
+ * @sep: separator
+ * Return: Nothing
  */
-void print_string(va_list arg)
+void prints_s(va_list list, char *sep)
 {
-char *pr;
+char *str;
 
-pr = va_arg(arg, char*);
-if (pr == NULL)
-{
-pr = "(nil)";
+str = va_arg(list, char*);
+if (str == NULL)
+str = "(nil)";
+printf("%s%s", sep, str);
 }
-printf("%s", pr);
-}
-
 /**
- * print_all - function to print all inputs
- * @format: const pointer to functionof type char
- * Return: always successful
+ * print_all - prints anything including char, integer, float, char *
+ * @format: format string
+ * Return: Nothing
  */
 void print_all(const char * const format, ...)
 {
+va_list print;
 int i, j;
-va_list arg;
-char *seperator;
+char *sep;
 
-pt types[] = {
-{"c", print_char},
-{"i", print_int},
-{"f", print_float},
-{"s", print_string},
+types_t tt[] = {
+{"c", prints_c},
+{"i", prints_i},
+{"f", prints_f},
+{"s", prints_s},
 {NULL, NULL}
 };
 
-va_start(arg, format);
-
+va_start(print, format);
 i = 0;
-seperator = "";
-while (format && format[i])
+sep = "";
+while (format[i] != '\0' && format != NULL)
 {
 j = 0;
-while (types[j].test != NULL)
+while (j < 4)
 {
-if (format[i] == types[j].test[0])
+if (format[i] == *(tt[j]).type)
 {
-printf("%s", seperator);
-types[j].printer(arg);
-seperator = ", ";
+tt[j].f(print, sep);
+sep = ", ";
 }
 j++;
 }
 i++;
 }
+va_end(print);
 printf("\n");
-va_end(arg);
 }
