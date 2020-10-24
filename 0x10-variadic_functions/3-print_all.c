@@ -73,10 +73,11 @@ while (format[i] != '\0' && format != NULL)
 j = 0;
 while (j < 4)
 {
-if (format[i] == *(tt[j]).type)
+if (format[i] == tt[j].type[0])
 {
 tt[j].f(print, sep);
 sep = ", ";
+break;
 }
 j++;
 }
