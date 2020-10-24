@@ -1,82 +1,80 @@
 #include "variadic_functions.h"
-#include <stdarg.h>
-#include <stdio.h>
 /**
- * prints_c - prints character
- * @list: variable list
- * @sep: separator
- * Return: Nothing
+ * print_char - print char
+ * @str: string pointer
+ * @valist: takes in a list
  */
-void prints_c(va_list list, char *sep)
+void print_char(char *str, va_list valist)
 {
-printf("%s%c", sep, va_arg(list, int));
+printf("%s%c", str, va_arg(valist, int));
 }
-/**
- * prints_i - prints integer
- * @list: variable list
- * @sep: separator
- * Return: Nothing
- */
-void prints_i(va_list list, char *sep)
-{
-printf("%s%d", sep, va_arg(list, int));
-}
-/**
- * prints_f - prints float
- * @list: variable list
- * @sep: separator
- * Return: Nothing
- */
-void prints_f(va_list list, char *sep)
-{
-printf("%s%f", sep, va_arg(list, double));
-}
-/**
- * prints_s - prints string
- * @list: variable list
- * @sep: separator
- * Return: Nothing
- */
-void prints_s(va_list list, char *sep)
-{
-char *str;
 
-str = va_arg(list, char*);
-if (str == NULL)
-str = "(nil)";
-printf("%s%s", sep, str);
-}
 /**
- * print_all - prints anything including char, integer, float, char *
- * @format: format string
- * Return: Nothing
+ * print_int - print int
+ * @str: string pointer
+ * @valist: takes in a list
+ */
+void print_int(char *str, va_list valist)
+{
+printf("%s%d", str, va_arg(valist, int));
+}
+
+/**
+ * print_float - print float
+ * @str: string pointer
+ * @valist: takes in a list
+ */
+void print_float(char *str, va_list valist)
+{
+printf("%s%f", str, va_arg(valist, double));
+}
+
+/**
+ * print_string - print a string
+ * @str: string pointer
+ * @valist: takes in a list
+ */
+void print_string(char *str, va_list valist)
+{
+char *temp;
+
+temp = va_arg(valist, char *);
+if (temp == NULL)
+{
+temp = "(nil)";
+}
+printf("%s%s", str, temp);
+}
+
+/**
+ * print_all - prints everything
+ * @format: takes in a format
  */
 void print_all(const char * const format, ...)
 {
-va_list print;
-int i, j;
-char *sep;
+va_list valist;
+int i = 0, j;
+char *str;
 
-types_t tt[] = {
-{"c", prints_c},
-{"i", prints_i},
-{"f", prints_f},
-{"s", prints_s},
+options select_option[] = {
+{"c", print_char},
+{"i", print_int},
+{"f", print_float},
+{"s", print_string},
 {NULL, NULL}
 };
 
-va_start(print, format);
-i = 0;
-sep = "";
-while (format[i] != '\0' && format != NULL)
+va_start(valist, format);
+str = "";
+while (format && format[i])
 {
 j = 0;
 while (j < 4)
 {
-if (format[i] == tt[j].type[0])
+if (select_option[j].c[0] == format[i])
 {
-tt[j].f(print, sep);
-sep = ", ";
+select_option[j].call_fun(str, valist);
+str = ", ";
 break;
 }
 j++;
@@ -84,5 +82,5 @@ j++;
 i++;
 }
 printf("\n");
-va_end(print);
+va_end(valist);
 }
