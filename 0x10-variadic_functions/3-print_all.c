@@ -83,6 +83,6 @@ j++;
 }
 i++;
 }
-va_end(print);
 printf("\n");
+va_end(print);
 }
