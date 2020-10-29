@@ -1,10 +1,10 @@
-##README FILE
+## README FILE
 
 
-###Project 0x00. C - Hello, World.
+## Project 0x00. C - Hello, World.
 
 
-###Pre-requirements 
+## Pre-requirements 
 
 
 Allowed editors: vi, vim, emacs
@@ -24,11 +24,11 @@ You are not allowed to use system
 Your code should use the Betty style. It will be checked using betty-style.pl and betty-doc.pl
 
 
-###Versioned 
+## Versioned 
 Compiled on Ubuntu 14.04 LTS using gcc 4.8.4.
 
 
-###Authors 
+## Authors 
 - [Alexis Oreiro](https://github.com/alexoreiro)
 
--For [Holberton School](https://www.holbertonschool.com/uy)
+- [Holberton School](https://www.holbertonschool.com/uy)
