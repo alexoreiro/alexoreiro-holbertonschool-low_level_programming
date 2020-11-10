@@ -1,31 +1,33 @@
 #include <stdio.h>
-
 /**
  * main - Entry point
  *
  * Return: Always 0 (Success)
  */
-
 int main(void)
 {
-int n;
-
-for (n = 0; n <= 99; n++)
+int i, a;
+for (i = '0'; i <= '9'; i++)
 {
-if (n % 10 != n / 10)
+for (a = '0'; a <= '9'; a++)
 {
-putchar((n / 10) + '0');
-putchar((n % 10) + '0');
-}
-if (n != 89)
+if (a == i)
+{}
+else
+if (i < a)
 {
-putchar(',');
-putchar(' ');
-}
+putchar(i);
+putchar(a);
+if (i == '8' && a == '9')
+{}
 else
 {
+putchar(44);
+putchar(32);
+}
+}
+}
+}
 putchar('\n');
-}
-}
 return (0);
 }
