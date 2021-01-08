@@ -1,20 +1,30 @@
 #include <stdio.h>
-#include <math.h>
-
+/**
+ * main - return prime factors
+ *
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
 int main(void)
 {
-long int i, n, num, maxprime;
+unsigned long int n = 612852475143;
+unsigned long int div = 2, maxFact;
 
-num = 612852475143;
-n = num;
-for (i = 3; i <= sqrt(n); i += 2)
+while (n != 0)
 {
-while (num % i == 0)
+if (n % div != 0)
+div = div + 1;
+else
 {
-maxprime = i;
-num /= i;
+maxFact = n;
+n = n / div;
+if (n == 1)
+{
+printf("%lu\n", maxFact);
+break;
 }
 }
-printf("%li", maxprime);
+}
 return (0);
 }
