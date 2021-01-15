@@ -16,8 +16,7 @@ hash_node_t *tmp, *head, *new_node;
 if (key == NULL || strlen(key) <= 0 || ht == NULL || value == NULL)
 return (0);
 k_idx = key_index((const unsigned char *)key, ht->size);
-head = tmp = ht->array[k_idx];
-	
+head = tmp = ht->array[k_idx];	
 while (tmp != NULL && tmp->key != NULL)
 {
 /* if there is a matching key, update the value */
