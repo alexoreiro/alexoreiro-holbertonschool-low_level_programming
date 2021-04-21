@@ -1,4 +1,4 @@
-Create your first useful Makefile.
+#Create your first useful Makefile.
 #compiler to be used
 CC = gcc
 
