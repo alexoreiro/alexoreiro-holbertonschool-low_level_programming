@@ -1,10 +1,13 @@
-## README FILE
-
-
 ## Project 0x13. C - More Singly linked lists.
 
+## Learning objectives.
 
-Pre-requirements 
+How to use linked lists
+
+Start to look for the right source of information without too much help
+
+
+## Pre-requirements 
 
 
 Allowed editors: vi, vim, emacs
@@ -32,10 +35,12 @@ Your code should use the Betty style. It will be checked using betty-style.pl an
 
 
 ## Versioned 
+
 Compiled on Ubuntu 14.04 LTS using gcc 4.8.4.
 
 
 ## Authors 
+
 - [Alexis Oreiro](https://github.com/alexoreiro)
 
 -For [Holberton School](https://www.holbertonschool.com/uy)
